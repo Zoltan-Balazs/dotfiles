@@ -1,6 +1,6 @@
 # OMF Plugins
-bang-bang
-thefuck
+- bang-bang
+- thefuck
 
 # General purpose CLI utilities
 fish
