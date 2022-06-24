@@ -1,6 +1,5 @@
 # OMF Plugins
 - bang-bang
-- thefuck
 
 # General purpose CLI utilities
 - fish
@@ -16,3 +15,4 @@
 - grex
 - fd
 - yt-dlp
+- thefuck
