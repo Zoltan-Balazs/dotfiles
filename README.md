@@ -16,6 +16,12 @@
 - fd
 - yt-dlp
 - thefuck
+- hexyl
+- nomino
+- sd
+- dust
+- eva
+- broot
 
 # MacOS utilities
 - [homebrew](https://brew.sh/)
