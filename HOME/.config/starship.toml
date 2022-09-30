@@ -1,0 +1,47 @@
+# Sets the symbol to "❯" 
+[character]
+format = "[❯](bold green) "
+success_symbol = "[❯](bold green) "
+error_symbol = "[❯](bold red) "
+
+[package]
+disabled = false
+
+# Disable the AWS module.
+[aws]
+disabled = true
+
+# Disable the GCP module.
+[gcloud]
+disabled = true
+
+# Set the time format
+[time]
+disabled = false
+time_format = "📅 %m/%d ⏱️ %H:%M"
+format = "[$time ](white bold)"
+
+# Directory setttings
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 3
+read_only = " 🔒"
+truncate_to_repo = false
+truncation_symbol = "…/"
+
+[username]
+disabled = false
+format = "[$user](bold yellow)[@](bold cyan)"
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold red) "
+
+[cmd_duration]
+disabled = false
+min_time = 500
+format = "took [$duration](bold yellow) "
+
+[git_status]
+disabled = false
