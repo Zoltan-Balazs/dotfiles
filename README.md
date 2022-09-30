@@ -11,6 +11,7 @@
 - procs
 - tealdeer
 - ripdrag
+- topgrade
 - ripgrep
 - grex
 - fd
