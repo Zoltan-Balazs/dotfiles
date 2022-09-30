@@ -7,10 +7,10 @@
 - exa
 - bat
 - zoxide
-- neovim (nvchad / lunarvim)
 - btop
 - procs
 - tealdeer
+- ripdrag
 - ripgrep
 - grex
 - fd
