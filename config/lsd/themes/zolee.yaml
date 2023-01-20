@@ -1,0 +1,27 @@
+user: 220 # 230
+group: 187
+permission:
+  read: dark_yellow # dark_green
+  write: dark_red # dark_yellow
+  exec: dark_green # dark_red
+  exec-sticky: 5
+  no-access: 245
+  octal: 6
+  acl: dark_cyan
+  context: cyan
+date:
+  hour-old: [0xFF, 0x0A, 0x68] # 40
+  day-old: [0xE6, 0x0A, 0xFF] # 42
+  older: [0x0A, 0x84, 0xFF] # 36
+size:
+  none: 245
+  small: [0x2D, 0xB7, 0x39] # 229
+  medium: [0xB7, 0xB0, 0x2D] # 216
+  large: [0xB7, 0x54, 0x2D] # 172
+inode:
+  valid: 13
+  invalid: 245
+links:
+  valid: 13
+  invalid: 245
+tree-edge: 245
