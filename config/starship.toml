@@ -1,48 +1,114 @@
-# Sets the symbol to "❯" 
-[character]
-format = "[❯](bold green) "
-success_symbol = "[❯](bold green) "
-error_symbol = "[❯](bold red) "
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$package\
+$c\
+$golang\
+$haskell\
+$java\
+$kotlin\
+$python\
+$rlang\
+$rust\
+$swift\
+$fill\
+$jobs $memory_usage $cmd_duration $time\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+[directory]
+style = "blue"
+read_only = " "
+truncation_length = 3
+truncate_to_repo = false
+truncation_symbol = "../"
 
 [package]
+format = "[$symbol$version]($style) "
+
+[c]
+format = "[$symbol($version(-$name))]($style) "
+
+[golang]
+format = "[$symbol($version)]($style) "
+
+[haskell]
+format = "[$symbol($version)]($style) "
+
+[java]
+format = "[${symbol}(${version})]($style) "
+
+[kotlin]
+format = "[$symbol($version)]($style) "
+
+[python]
+format = "[${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\))]($style) "
+
+[rlang]
+format = "[$symbol($version)]($style) "
+
+[rust]
+format = "[$symbol($version)]($style) "
+
+[swift]
+format = "[$symbol($version)]($style) "
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bright-black"
+
+[jobs]
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = "[$symbol]($style)"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "cyan"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[git_metrics]
 disabled = false
 
-# Disable the AWS module.
-[aws]
-disabled = true
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow"
 
-# Disable the GCP module.
-[gcloud]
-disabled = true
+[memory_usage]
+disabled = false
+threshold = 50
+format = "$symbol[$ram( | $swap)]($style) "
 
-# Set the time format
 [time]
 disabled = false
-time_format = "📅 %m/%d ⏱️ %H:%M"
-format = "[$time ](white bold)"
-
-# Directory setttings
-[directory]
-format = "[$path]($style)[$read_only]($read_only_style) "
-truncation_length = 3
-read_only = " 🔒"
-truncate_to_repo = false
-truncation_symbol = "…/"
+style = "bold white"
+time_format = "%H:%M"
+format = "[$time]($style)"
 
 [username]
 disabled = false
-format = "[$user](bold yellow)[@](bold cyan)"
-show_always = true
+show_always = false
+format = "[$user]($style)@"
 
 [hostname]
-ssh_only = false
-format = "[$hostname](bold red) "
-
-[cmd_duration]
 disabled = false
-min_time = 500
-format = "took [$duration](bold yellow) "
-
-[git_status]
-disabled = false
-
+ssh_only = true
+format = "[$ssh_symbol$hostname]($style) "
