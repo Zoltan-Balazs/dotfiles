@@ -32,6 +32,7 @@
 - ripgrep-all
 - ripgrep
 - sd
+- **sdkman**
 - **starship**
 - **tealdeer**
 - **thefuck**
