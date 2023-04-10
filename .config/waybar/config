@@ -1,0 +1,139 @@
+[
+    {
+        "layer": "top",
+        "height": 30,
+        "spacing": 5,
+        "margin-bottom": 0,
+        "margin-left": 10,
+        "margin-right": 10,
+        "margin-top": 6,
+        "modules-left": [
+            "custom/updater",
+            "custom/weather",
+            "wlr/workspaces",
+            "wlr/taskbar",
+        ],
+        "modules-center": [],
+        "modules-right": [
+            "custom/notifications",
+            "custom/clipboard",
+            "network",
+            "cpu",
+            "memory",
+            "pulseaudio",
+            "bluetooth",
+            "tray",
+            "clock",
+        ],
+        "custom/updater": {
+            "format": "{} ",
+            "interval": 15,
+            "exec": "checkupdates | wc -l",
+            "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+            "on-click": "alacritty -e ame upg && notify-send 'The system has been updated'",
+            "signal": 8,
+            "tooltip": false
+        },
+        "custom/weather": {
+            "exec": "python3 ~/.local/bin/weather",
+            "restart-interval": 300,
+            "return-type": "json",
+            "on-click": "xdg-open https://weather.com/en-GB/weather/today/l/Cs%C3%B6m%C3%B6r+Pest?canonicalCityId=e339243034101989eb24e3f811b8a0e958388deb3f59662c19639081e16f6d65"
+        },
+        "wlr/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "default": "",
+                "urgent": "",
+            },
+            "on-click": "activate",
+        },
+        "wlr/taskbar": {
+            "format": "{icon}",
+            "icon-size": 20,
+            "icon-theme": "Papirus Dark",
+            "tooltip-format": "{title}",
+            "on-click": "activate",
+            "on-click-middle": "close"
+        },
+        "custom/notifications": {
+            "format": "🔔",
+            "on-click": ".local/bin/rofi-notif-center",
+            "on-click-middle": "rm /tmp/dunstlog",
+            "exec": "cat /tmp/dunstlog | wc -l",
+            "exec-if": "[ -s /tmp/dunstlog ] && [ $(cat /tmp/dunstlog | wc -l) -gt 0 ]",
+            "interval": 5,
+            "tooltip": false,
+        },
+        "custom/clipboard": {
+            "format": "📋",
+            "on-click": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -150 -y 10 -D line_wrap=char | cliphist decode | wl-copy",
+            "on-click-right": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -150 -y 10 -D line_wrap=char | cliphist delete",
+            "on-click-middle": "rm -f ~/.cache/cliphist/db",
+            "exec": "cliphist list | wc -l",
+            "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
+            "interval": 5,
+            "tooltip": false,
+        },
+        "network": {
+            "format-disconnected": "睊",
+            "format-wifi": "直 {essid}",
+            "format-ethernet": " ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
+            "interval": 3,
+            "tooltip-format": "{ifname} - {ipaddr}",
+            "tooltip": true,
+        },
+        "cpu": {
+            "format": " {}%",
+            "interval": 10,
+            "max-length": 10,
+            "tooltip": false,
+        },
+        "memory": {
+            "format": " {used:0.1f}G",
+            "interval": 30,
+            "max-length": 10,
+            "tooltip": false,
+        },
+        "pulseaudio": {
+            "format": "{icon} {volume}%",
+            "format-icons": {
+                "car": "",
+                "default": [
+                    "",
+                    "",
+                    ""
+                ],
+                "hands-free": "",
+                "headphone": "",
+                "headset": "",
+                "phone": "",
+                "portable": ""
+            },
+            "format-muted": "婢",
+            "on-click": "pavucontrol",
+        },
+        "bluetooth": {
+            "on-click": "~/.local/bin/rofi-bluetooth &",
+            "format": " {status}",
+        },
+        "tray": {
+            "spacing": 10,
+        },
+        "clock": {
+            "format": "<span color='#bf616a'> </span>{:%H:%M}",
+            "format-alt": "<span color='#bf616a'> </span>{:%Y/%m/%d %A}",
+            "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+            "on-click": "/home/zoli/.config/eww/bar/scripts/popup calendar &",
+        },
+    }
+]

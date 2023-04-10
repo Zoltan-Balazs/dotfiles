@@ -1,38 +1,67 @@
-# OMF Plugins
-- bang-bang
+# [Oh-My-Fish](https://github.com/oh-my-fish/oh-my-fish)
 
-# General purpose CLI utilities
-- fish
-- starship
-- exa
-- bat
+- bang-bang
 - zoxide
-- btop
-- procs
-- tealdeer
-- ripdrag
-- topgrade
-- ripgrep
-- grex
-- fd
-- yt-dlp
 - thefuck
-- hexyl
-- nomino
-- sd
+- sdkman-for-fish
+
+# CLI
+
+- **bat**
+- broot
+- **btop**
+- delta
+- difftastic
 - dust
 - eva
-- broot
+- **exa**
+- fd
+- **fish**
+- grex
+- **hexyl**
+- **hyperfine**
+- jless
+- **just**
+- *lsd*
+- nomino
+- procs
+- **ripdrag**
+- ripgrep-all
+- ripgrep
+- sd
+- **starship**
+- **tealdeer**
+- **thefuck**
+- topgrade
+- **yt-dlp**
+- **zoxide**
 
-# MacOS utilities
-- [homebrew](https://brew.sh/)
-- [up](https://gist.github.com/mayel/c07bc0acb91824501d5bdbdc9eb7b33a)
+# Terminal
 
-# Linux utilities
-- [paru](https://github.com/Morganamilo/paru) (arch)
-- [bedrock](https://bedrocklinux.org/0.7/installation-instructions.html#installation)
+- **alacritty**
+- *kitty*
+
+# Editor
+
+- *emacs ([doomemacs](https://github.com/doomemacs/doomemacs))*
+- **neovim**
+- *VSCode*
+
+# Linux
+
+- *ame*
+- **hyprland**
+- **hyprpaper**
+- **joshuto**
 - nvtop
+- **paru**
+- **ranger**
+- **swayidle**
+- **swaylock-effects**
+- **thunar**
+- **waybar**
 
-# VSCode
-- [Settings Sync](https://gist.github.com/Zoltan-Balazs/938e5024472d4033d3a2d657cbea420c)
-- [settings.json](https://gist.github.com/Zoltan-Balazs/683df380647b74d08d9a916742c451d6)
+# MacOS
+
+- **homebrew**
+- [up](https://gist.github.com/mayel/c07bc0acb91824501d5bdbdc9eb7b33a)
