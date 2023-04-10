@@ -23,7 +23,10 @@
 - jless
 - **just**
 - *lsd*
+- **neofetch**
 - nomino
+- **onefetch**
+- *pfetch*
 - procs
 - **ripdrag**
 - ripgrep-all
