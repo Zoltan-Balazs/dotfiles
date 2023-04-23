@@ -16,6 +16,7 @@
 - eva
 - **exa**
 - fd
+- **feh**
 - **fish**
 - grex
 - **hexyl**
@@ -27,6 +28,7 @@
 - nomino
 - **onefetch**
 - *pfetch*
+- **pngquant**
 - procs
 - **ripdrag**
 - ripgrep-all
@@ -53,14 +55,20 @@
 
 # Linux
 
+- **1password**
 - *ame*
+- **blueman**
+- **grim**
 - **hyprland**
 - **hyprpaper**
 - **joshuto**
 - nvtop
 - **paru**
 - **ranger**
+- **slurp**
+- **swappy**
 - **swayidle**
+- **swaync**
 - **swaylock-effects**
 - **thunar**
 - **waybar**

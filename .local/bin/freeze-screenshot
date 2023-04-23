@@ -1,0 +1,13 @@
+#!/bin/bash
+
+grim - | feh - &
+feh_pid=$!
+
+while [ -z "$(xdotool search --pid "$feh_pid")" ]; do
+    sleep 0.1
+done
+
+wid="$(xdotool search --pid "$feh_pid")"
+
+xdotool windowsize "$wid" 100% 100%
+xdotool windowmove "$wid" 0 0

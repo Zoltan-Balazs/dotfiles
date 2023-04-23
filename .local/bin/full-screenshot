@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grim - | swappy -f - -o - | pngquant - --output "$HOME/Pictures/Screenshots/Screenshot_$(date +"%Y%m%d_%H%M%S.png")" && wl-copy < $(/usr/bin/ls -dArt /home/zoli/Pictures/Screenshots/* | tail -n 1) && notify-send -a "Grim" "Screenshot Taken" "Saved as Screenshot_$(date +"%Y%m%d_%H%M%S.png")"
