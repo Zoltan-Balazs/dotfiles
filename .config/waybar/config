@@ -16,6 +16,7 @@
       "network",
       "cpu",
       "memory",
+      "custom/layoutswitcher",
       "custom/clipboard",
       "tray",
       "pulseaudio",
@@ -56,23 +57,30 @@
     },
     "network": {
       "format-disconnected": "睊",
-      "format-wifi": "🌐{essid}",
-      "format-ethernet": "🌐↓{bandwidthDownBits} ↑{bandwidthUpBits}",
+      "format-wifi": "🌐 {essid}",
+      "format-ethernet": "🌐 ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
       "on-click": "alacritty -e nmtui",
       "interval": 3,
       "tooltip-format": "{ifname} - {ipaddr}",
       "tooltip": true
     },
     "cpu": {
-      "format": "💻​{}%",
+      "format": "💻 {}%",
       "interval": 10,
       "max-length": 10,
       "tooltip": false
     },
     "memory": {
-      "format": "🐏​{used:0.1f}G",
+      "format": "🐏 {used:0.1f}GB",
       "interval": 30,
       "max-length": 10,
+      "tooltip": false
+    },
+    "custom/layoutswitcher": {
+      "format": "{}",
+      "exec": "get-keyboard-language",
+      "on-click": "language-switcher",
+      "interval": 1,
       "tooltip": false
     },
     "custom/clipboard": {
@@ -91,24 +99,24 @@
     "pulseaudio": {
       "format": "{icon} {volume}%",
       "format-icons": {
-        "car": "🚗​",
+        "car": "🚗 ",
         "default": [
-          "🔈​",
-          "🔉​",
-          "🔊​"
+          "🔈 ",
+          "🔉 ",
+          "🔊 "
         ],
-        "headphone": "🎧​",
-        "phone": "📞​",
-        "portable": "📞​"
+        "headphone": "🎧 ",
+        "phone": "📞 ",
+        "portable": "📞 "
       },
-      "format-muted": "🔇​​",
+      "format-muted": "🔇 ",
       "on-click": "pavucontrol",
       "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
       "on-click-middle": "playerctl play-pause"
     },
     "clock": {
-      "format": "🕐​{:%H:%M}",
-      "format-alt": "📅​{:%Y/%m/%d %A}",
+      "format": "🕐 {:%H:%M}",
+      "format-alt": "📅 {:%Y/%m/%d %A}",
       "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
       "on-click": "galendae"
     },

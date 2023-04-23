@@ -1,0 +1,17 @@
+#!/bin/bash
+
+device="cooler-master-technology-inc.-mk730"
+
+language=`hyprctl devices -j | jq -c '.keyboards' | jq -c '.[]' | grep '"cooler-master-technology-inc.-mk730"' | jq -r '.active_keymap'`
+
+case $language in
+    "English (US)")
+        echo 🇺🇸
+        ;;
+    "Hungarian")
+        echo 🇭🇺
+        ;;
+    *)
+        echo 🇦🇶
+        ;;
+esac

@@ -38,6 +38,7 @@ window#waybar.hidden {
 #tray,
 #custom-clipboard,
 #custom-notifications,
+#custom-layoutswitcher,
 #taskbar,
 #custom-weather,
 #custom-weather.severe,
@@ -57,13 +58,10 @@ window#waybar.hidden {
   color: rgb(218, 44, 56);
 }
 
-#custom-notifications #custom-clipboard {
-  font-size: 90%;
-  padding: 2
-}
-
-#custom-notifications {
-  padding-right: 10px;
+#custom-notifications,
+#custom-clipboard,
+#custom-layoutswitcher {
+  font-family: Noto Color Emoji;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

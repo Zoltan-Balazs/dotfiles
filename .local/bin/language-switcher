@@ -1,0 +1,5 @@
+#!/bin/bash
+
+device="cooler-master-technology-inc.-mk730"
+
+hyprctl switchxkblayout $device next
