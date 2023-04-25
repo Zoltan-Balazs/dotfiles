@@ -1,5 +1,7 @@
 #!/bin/bash
 
-device="cooler-master-technology-inc.-mk730"
+devices=("cooler-master-technology-inc.-mk730" "zsa-technology-labs-moonlander-mark-i" "at-translated-set-2-keyboard")
 
-hyprctl switchxkblayout $device next
+for device in ${devices[@]}; do
+    hyprctl switchxkblayout $device next
+done

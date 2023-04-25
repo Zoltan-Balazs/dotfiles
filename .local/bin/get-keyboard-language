@@ -1,8 +1,17 @@
 #!/bin/bash
 
-device="cooler-master-technology-inc.-mk730"
+devices=("cooler-master-technology-inc.-mk730" "zsa-technology-labs-moonlander-mark-i" "at-translated-set-2-keyboard")
 
-language=`hyprctl devices -j | jq -c '.keyboards' | jq -c '.[]' | grep '"cooler-master-technology-inc.-mk730"' | jq -r '.active_keymap'`
+valid_device=''
+
+for device in ${devices[@]}; do
+    if test "$(hyprctl devices -j | jq -c '.keyboards' | jq -c '.[]' | grep "${device}" | wc -l)" -ne 0
+    then
+        valid_device=$device
+    fi
+done
+
+language=$(hyprctl devices -j | jq -c '.keyboards' | jq -c '.[]' | grep "${valid_device}" | jq -r '.active_keymap')
 
 case $language in
     "English (US)")
@@ -12,6 +21,6 @@ case $language in
         echo 🇭🇺
         ;;
     *)
-        echo 🇦🇶
+        echo 🌍
         ;;
 esac
