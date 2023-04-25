@@ -14,6 +14,8 @@
     ],
     "modules-right": [
       "network",
+      "battery",
+      "backlight",
       "cpu",
       "memory",
       "custom/layoutswitcher",
@@ -63,6 +65,32 @@
       "interval": 3,
       "tooltip-format": "{ifname} - {ipaddr}",
       "tooltip": true
+    },
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": "⚡ {capacity}%",
+      "format-plugged": "🔌 {capacity}%",
+      "format-alt": "{time} {icon}",
+      "format-full": "🔋 {capacity}%",
+      "format-icons": [
+        "🪫",
+        "🔋"
+      ],
+      "tooltip": false
+    },
+    "backlight": {
+      "format": "{icon} {percent}%",
+      "format-icons": [
+        "🌑",
+        "🕯️",
+        "💡",
+        "🔦"
+      ],
+      "tooltip": false
     },
     "cpu": {
       "format": "💻 {}%",
