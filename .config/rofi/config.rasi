@@ -1,8 +1,8 @@
 configuration{
-    modi: "run,drun,window";
-    icon-theme: "Oranchelo";
+    modi: "drun,calc,emoji";
+    icon-theme: "Papirus";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
@@ -11,7 +11,18 @@ configuration{
     display-run: "   Run ";
     display-window: " 﩯  Window";
     display-Network: " 󰤨  Network";
+    display-calc: "X Calculator";
+    display-emoji: "😀 Emoji";
     sidebar-mode: true;
 }
 
-@theme "catppuccin-macchiato"
+//@theme "catppuccin-macchiato"
+
+//@theme "/home/zoli/.local/share/rofi/themes/windows11-list-dark.rasi"
+//@theme "/home/zoli/.local/share/rofi/themes/spotlight-dark.rasi"
+//@theme "/home/zoli/.local/share/rofi/themes/launchpad.rasi"
+//@theme "/home/zoli/.local/share/rofi/themes/squared-nord.rasi"
+//@theme "/home/zoli/.local/share/rofi/themes/spotlight-dark.rasi"
+//@theme "/home/zoli/.local/share/rofi/themes/squared-nord.rasi"
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+@theme "/home/zoli/.local/share/rofi/themes/squared-nord.rasi"

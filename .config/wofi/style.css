@@ -1,54 +1,94 @@
-/* ::root{ */
-/*     --accent: #5291e2; */
-/*     --dark: #383C4A; */
-/*     --light: #7C818C; */
-/*     --ld: #404552; */
-/*     --dl: #4B5162 */
-/*     --white: white; */
-/* } */
+/* Macchiato Blue */
+@define-color accent #8aadf4;
+@define-color txt #cad3f5;
+@define-color bg #24273a;
+@define-color bg2 #494d64;
 
 * {
-    font-family: SF Pro;
-    margin: 0px;
+    font-family: 'SF Pro Display', monospace;
+    font-size: 14px;
 }
 
+/* Window */
 window {
-    background-color: #7C818C;
+    margin: 0px;
+    padding: 10px;
+    border: 3px solid @accent;
+    border-radius: 7px;
+    background-color: @bg;
+    animation: slideIn 0.5s ease-in-out both;
 }
 
-#input {
-    margin: 5px;
-    border-radius: 0px;
-    border: none;
-    border-bottom: 3px solid black;
-    background-color: #383C4A;
-    color: white;
+/* Slide In */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
+/* Inner Box */
 #inner-box {
-    background-color: #383C4A;
-
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: @bg;
+    animation: fadeIn 0.5s ease-in-out both;
 }
 
+/* Fade In */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Outer Box */
 #outer-box {
     margin: 5px;
-    padding: 5px;
-    background-color: #383C4A;
+    padding: 10px;
+    border: none;
+    background-color: @bg;
 }
 
-#scroll {}
+/* Scroll */
+#scroll {
+    margin: 0px;
+    padding: 10px;
+    border: none;
+}
 
+/* Input */
+#input {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    color: @accent;
+    background-color: @bg2;
+    animation: fadeIn 0.5s ease-in-out both;
+}
+
+/* Text */
 #text {
-    padding: 5px;
-    color: white;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    color: @txt;
+    animation: fadeIn 0.5s ease-in-out both;
 }
 
-#entry:nth-child(even) {
-    background-color: #404552;
-}
-
+/* Selected Entry */
 #entry:selected {
-    background-color: #5291e2;
+    background-color: @accent;
 }
 
-#text:selected {}
+#entry:selected #text {
+    color: @bg;
+}

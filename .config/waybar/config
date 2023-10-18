@@ -6,25 +6,24 @@
     "margin-bottom": 0,
     "modules-left": [
       "custom/logout",
-      "custom/weather",
-      "wlr/workspaces"
+      "hyprland/workspaces"
     ],
     "modules-center": [
-      "custom/title"
+      "custom/weather",
+      "clock"
     ],
     "modules-right": [
       "network",
       "cpu",
       "memory",
-      "custom/layoutswitcher",
-      "custom/clipboard",
-      "tray",
       "pulseaudio",
-      "clock",
-      "custom/notifications"
+      "hyprland/language",
+      "custom/notifications",
+      "custom/clipboard",
+      "tray"
     ],
     "custom/logout": {
-      "format": "⚡​",
+      "format": "⏻​",
       "on-click": "wlogout"
     },
     "custom/weather": {
@@ -50,41 +49,36 @@
       },
       "on-click": "activate"
     },
-    "custom/title": {
-      "exec": "get-title",
-      "format": "{}",
-      "interval": 1
-    },
     "network": {
       "format-disconnected": "睊",
-      "format-wifi": "🌐 {essid}",
-      "format-ethernet": "🌐 ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
-      "on-click": "alacritty -e nmtui",
-      "interval": 3,
+      "format-wifi": "  {essid}",
+      "format-ethernet": "🖧 ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
+      "on-click": "kitty -e nmtui",
+      "interval": 5,
       "tooltip-format": "{ifname} - {ipaddr}",
       "tooltip": true
     },
     "cpu": {
-      "format": "💻 {}%",
+      "format": "  {}%",
       "interval": 10,
       "max-length": 10,
       "tooltip": false
     },
     "memory": {
-      "format": "🐏 {used:0.1f}GB",
+      "format": " {used:0.1f}GB",
       "interval": 30,
       "max-length": 10,
       "tooltip": false
     },
-    "custom/layoutswitcher": {
-      "format": "{}",
-      "exec": "get-keyboard-language",
-      "on-click": "language-switcher",
-      "interval": 1,
-      "tooltip": false
+    "hyprland/language": {
+      "format": "{} \udb80\udf0c",
+      "format-en": "US",
+      "format-hu": "HU",
+      "keyboard-name": "zsa-technology-labs-moonlander-mark-i",
+      "on-click": "hyprctl switchxkblayout zsa-technology-labs-moonlander-mark-i next"
     },
     "custom/clipboard": {
-      "format": "📋​",
+      "format": "📋",
       "on-click": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -150 -y 10 -D line_wrap=char | cliphist decode | wl-copy",
       "on-click-right": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -150 -y 10 -D line_wrap=char | cliphist delete",
       "on-click-middle": "rm -f ~/.cache/cliphist/db",
@@ -97,32 +91,32 @@
       "spacing": 10
     },
     "pulseaudio": {
-      "format": "{icon} {volume}%",
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": "{icon}  {volume}%",
+      "format-muted": "",
       "format-icons": {
-        "car": "🚗 ",
+        "headphones": "",
+        "handsfree": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
         "default": [
-          "🔈 ",
-          "🔉 ",
-          "🔊 "
-        ],
-        "headphone": "🎧 ",
-        "phone": "📞 ",
-        "portable": "📞 "
+          "",
+          ""
+        ]
       },
-      "format-muted": "🔇 ",
       "on-click": "pavucontrol",
       "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
       "on-click-middle": "playerctl play-pause"
     },
     "clock": {
-      "format": "🕐 {:%H:%M}",
-      "format-alt": "📅 {:%Y/%m/%d %A}",
-      "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "🕑 {:%m/%d %H:%M}",
       "on-click": "galendae"
     },
     "custom/notifications": {
-      "format": "🔔​",
-      "on-click": "swaync-client -t",
+      "format": "🔔",
+      "on-click": "sleep 0.1; swaync-client -t",
       "on-click-middle": "swaync-client -C",
       "exec": "swaync-client -c",
       "exec-if": "[ $(swaync-client -c) -gt 0 ]",

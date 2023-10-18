@@ -1,11 +1,11 @@
 * {
   font-family: SF Pro Display;
   font-size: 15px;
+  font-weight: bold;
 }
 
 window#waybar {
-  background-color: rgba(16, 16, 16, 0.8);
-  color: #ffffff;
+  background-color: rgba(15, 15, 15, 0.15);
   transition-property: background-color;
   border-top: 2px transparent;
   transition-duration: 0.5s;
@@ -17,29 +17,24 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-  color: #bf616a;
+  color: rgb(208, 52, 44);
 }
 
 #workspaces button.active {
-  color: rgb(0, 130, 252);
+  color: rgb(22, 22, 29);
 }
 
 #workspaces button.urgent {
   background-color: #eb4d4b;
 }
 
+#workspaces,
 #clock,
-#battery,
 #cpu,
 #memory,
-#backlight,
 #network,
 #pulseaudio,
-#tray,
-#custom-clipboard,
-#custom-notifications,
-#custom-layoutswitcher,
-#taskbar,
+#language,
 #custom-weather,
 #custom-weather.severe,
 #custom-weather.sunnyDay,
@@ -51,22 +46,38 @@ window#waybar.hidden {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.default {
-  padding: 0 5;
+  padding: 0 7px;
+  margin-left: 5px;
 }
 
-#network.disconnected {
-  color: rgb(218, 44, 56);
-}
-
-#custom-notifications,
+#tray,
 #custom-clipboard,
-#custom-layoutswitcher {
-  font-family: Noto Color Emoji;
+#custom-notifications {
+  padding: 0 5px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-  margin-left: 0;
+#custom-logout {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#custom-logout {
+  background-color: #ae0040;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#workspaces {
+  background-color: #981c66;
+  padding: 0px;
+}
+
+#custom-weather {
+  background-color: #8b2c7b;
+}
+
+#clock {
+  background-color: #7c3f95;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
@@ -74,16 +85,31 @@ window#waybar.hidden {
   margin-right: 0;
 }
 
-#custom-logout {
-  color: rgb(218, 44, 56);
-  padding-left: 5px;
+#network {
+  background-color: #724ba6;
 }
 
-@keyframes blink {
-  to {
-    background-color: rgba(30, 34, 42, 0.5);
-    color: #abb2bf;
-  }
+#network.disconnected {
+  background-color: rgb(218, 44, 56);
+}
+
+#cpu {
+  background-color: #6758b8;
+}
+
+#memory {
+  background-color: #5e63c7;
+}
+
+#pulseaudio {
+  background-color: #556ed6;
+}
+
+#language,
+#custom-clipboard,
+#tray,
+#custom-notifications {
+  background-color: #4385f5;
 }
 
 label:focus {
