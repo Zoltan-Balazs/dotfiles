@@ -1,0 +1,21 @@
+profile Notebook {
+    output "Chimei Innolux Corporation 0x1610 0x00000000" enable mode 1920x1200@60Hz position 0,0
+}
+
+profile Workplace {
+    output "Dell Inc. DELL P2419HC J1ZNJQ2" enable mode 1920x1080@60Hz position 0,0
+    output "Dell Inc. DELL P2419HC 6TZLJQ2" enable mode 1920x1080@60Hz position 1920,0
+    output "Chimei Innolux Corporation 0x1610 0x00000000" enable mode 1920x1200@60Hz position 3840,0
+    exec swaymsg workspace 1, move workspace to '"Dell Inc. DELL P2419HC J1ZNJQ2"'
+    exec swaymsg workspace 2, move workspace to '"Dell Inc. DELL P2419HC 6TZLJQ2"'
+    exec swaymsg workspace 3, move workspace to '"Chimei Innolux Corporation 0x1610 0x00000000"'
+}
+
+profile Workplace {
+    output "Dell Inc. DELL P2419HC 1WZXK03" enable mode 1920x1080@60Hz position 0,0
+    output "Dell Inc. DELL P2419HC 5WPXK03" enable mode 1920x1080@60Hz position 1920,0
+    output "Chimei Innolux Corporation 0x1610 0x00000000" enable mode 1920x1200@60Hz position 3840,0
+    exec swaymsg workspace 1, move workspace to '"Dell Inc. DELL P2419HC 1WZXK03"'
+    exec swaymsg workspace 2, move workspace to '"Dell Inc. DELL P2419HC 5WPXK03"'
+    exec swaymsg workspace 3, move workspace to '"Chimei Innolux Corporation 0x1610 0x00000000"'
+}

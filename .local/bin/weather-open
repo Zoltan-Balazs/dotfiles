@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+
+import os
+
+weather_link = f"https://wttr.in/Csömör"
+
+os.system("xdg-open " + weather_link)

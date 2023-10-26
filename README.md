@@ -29,6 +29,7 @@
 - **hyperfine**
 - jless
 - **just**
+- **kanshi**
 - *lsd*
 - **neofetch**
 - nomino
@@ -39,12 +40,14 @@
 - **ripdrag**
 - ripgrep-all
 - ripgrep
+- **satty**
 - sd
 - **sdkman**
 - **starship**
 - **tealdeer**
 - **thefuck**
 - topgrade
+- **wl-mirror**
 - **yt-dlp**
 - **zoxide**
 
@@ -65,14 +68,13 @@
 - *ame*
 - **blueman**
 - **grim**
-- **hyprland**
-- **hyprpaper**
 - **joshuto**
 - nvtop
 - **paru**
 - **ranger**
 - **slurp**
 - **swappy**
+- **sway**
 - **swayidle**
 - **swaync**
 - **swaylock-effects**

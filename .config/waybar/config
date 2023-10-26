@@ -6,36 +6,29 @@
     "margin-bottom": 0,
     "modules-left": [
       "custom/logout",
-      "custom/weather",
-      "wlr/workspaces"
+      "sway/workspaces",
+      "custom/weather"
     ],
-    "modules-center": [
-      "custom/title"
-    ],
+    "modules-center": [ ],
     "modules-right": [
+      "tray",
+      "custom/notifications",
+      "custom/clipboard",
+      "sway/language",
       "network",
-      "battery",
-      "backlight",
       "cpu",
       "memory",
-      "custom/layoutswitcher",
-      "custom/clipboard",
-      "tray",
+      "battery",
+      "backlight",
       "pulseaudio",
-      "clock",
-      "custom/notifications"
+      "clock"
     ],
     "custom/logout": {
-      "format": "⚡​",
-      "on-click": "wlogout"
+      "format": "⏻",
+      "on-click": "wlogout",
+      "tooltip": false
     },
-    "custom/weather": {
-      "exec": "python3 ~/.local/bin/weather",
-      "restart-interval": 300,
-      "return-type": "json",
-      "on-click": "xdg-open https://weather.com/en-GB/weather/today/l/Cs%C3%B6m%C3%B6r+Pest?canonicalCityId=e339243034101989eb24e3f811b8a0e958388deb3f59662c19639081e16f6d65"
-    },
-    "wlr/workspaces": {
+    "sway/workspaces": {
       "format": "{icon}",
       "format-icons": {
         "1": "1",
@@ -52,69 +45,75 @@
       },
       "on-click": "activate"
     },
-    "custom/title": {
-      "exec": "get-title",
-      "format": "{}",
-      "interval": 1
+    "custom/weather": {
+      "exec": "python3 ~/.local/bin/weather",
+      "restart-interval": 300,
+      "return-type": "json",
+      "on-click": "python3 ~/.local/bin/weather-open"
     },
-    "network": {
+    "custom/notifications": {
+      "format": "​",
+      "on-click": "swaync-client -t",
+      "on-click-middle": "swaync-client -C",
+      "exec": "swaync-client -c",
+      "exec-if": "[ $(swaync-client -c) -gt 0 ]",
+      "interval": 5,
+      "tooltip": false
+    },
+    "sway/language": {
+      "format": "󰌌 {shortDescription}",
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+      "tooltip": false
+    },
+    "network": { 
       "format-disconnected": "睊",
-      "format-wifi": "🌐 {essid}",
-      "format-ethernet": "🌐 ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
-      "on-click": "alacritty -e nmtui",
+      "format-wifi": " {essid}",
+      "format-ethernet": "↓{bandwidthDownBits} ↑{bandwidthUpBits}",
       "interval": 3,
       "tooltip-format": "{ifname} - {ipaddr}",
       "tooltip": true
     },
+    "cpu": { //  
+      "format": "󰍛 {load:2.2f}%",
+      "interval": 10,
+      "max-length": 10,
+      "tooltip": false,
+      "on-click": "alacritty -e btop"
+    },
+    "memory": { // 󰍛
+      "format": " {used:0.1f}GB",
+      "interval": 30,
+      "max-length": 10,
+      "tooltip": false,
+      "on-click": "alacritty -e btop"
+    },
     "battery": {
+      "on-click": "powertop",
       "states": {
+        "good": 95,
         "warning": 30,
         "critical": 15
       },
       "format": "{icon} {capacity}%",
-      "format-charging": "⚡ {capacity}%",
-      "format-plugged": "🔌 {capacity}%",
-      "format-alt": "{time} {icon}",
-      "format-full": "🔋 {capacity}%",
       "format-icons": [
-        "🪫",
-        "🔋"
-      ],
-      "tooltip": false
+        "", "", "", "", ""
+      ]
     },
     "backlight": {
+      "device": "intel_backlight",
       "format": "{icon} {percent}%",
-      "format-icons": [
-        "🌑",
-        "🕯️",
-        "💡",
-        "🔦"
+		  "format-icons": [
+        "󰃚 ", "󰃛 ", "󰃜 ", "󰃝 ", "󰃞 ", "󰃟 ", "󰃠 "
       ],
-      "tooltip": false
-    },
-    "cpu": {
-      "format": "💻 {}%",
-      "interval": 10,
-      "max-length": 10,
-      "tooltip": false
-    },
-    "memory": {
-      "format": "🐏 {used:0.1f}GB",
-      "interval": 30,
-      "max-length": 10,
-      "tooltip": false
-    },
-    "custom/layoutswitcher": {
-      "format": "{}",
-      "exec": "get-keyboard-language",
-      "on-click": "language-switcher",
-      "interval": 1,
-      "tooltip": false
+      "on-click": "exec light -A 10",
+      "on-click-right": "exec light -U 10",
+      "on-scroll-up": "exec light -A 4", 
+      "on-scroll-down": "exec light -U 2"
     },
     "custom/clipboard": {
-      "format": "📋​",
-      "on-click": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -150 -y 10 -D line_wrap=char | cliphist decode | wl-copy",
-      "on-click-right": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -150 -y 10 -D line_wrap=char | cliphist delete",
+      "format": "󰅇​",
+      "on-click": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -180 -y 0 -D line_wrap=char | cliphist decode | wl-copy",
+      "on-click-right": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -180 -y 0 -D line_wrap=char | cliphist delete",
       "on-click-middle": "rm -f ~/.cache/cliphist/db",
       "exec": "cliphist list | wc -l",
       "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
@@ -122,39 +121,29 @@
       "tooltip": false
     },
     "tray": {
-      "spacing": 10
+      "spacing": 5,
+      "icon-size": 16
     },
     "pulseaudio": {
-      "format": "{icon} {volume}%",
+      "format": "{icon} {volume}% {format_source}",
+      "format-bluetooth": "{icon}  {volume}% {format_source}",
+      "format-source": " {volume}%",
+      "format-muted": "󰝟  {format_source}",
+      "format-bluetooth-muted": "󰝟   {format_source}",
+      "format-source-muted": " ",
       "format-icons": {
-        "car": "🚗 ",
         "default": [
-          "🔈 ",
-          "🔉 ",
-          "🔊 "
+          "", "", ""
         ],
-        "headphone": "🎧 ",
-        "phone": "📞 ",
-        "portable": "📞 "
+        "headphone": " "
       },
-      "format-muted": "🔇 ",
       "on-click": "pavucontrol",
       "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
       "on-click-middle": "playerctl play-pause"
     },
     "clock": {
-      "format": "🕐 {:%H:%M}",
-      "format-alt": "📅 {:%Y/%m/%d %A}",
-      "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-      "on-click": "galendae"
-    },
-    "custom/notifications": {
-      "format": "🔔​",
-      "on-click": "swaync-client -t",
-      "on-click-middle": "swaync-client -C",
-      "exec": "swaync-client -c",
-      "exec-if": "[ $(swaync-client -c) -gt 0 ]",
-      "interval": 5,
+      "format": " {:%m. %d. %a. %H:%M}",
+      "on-click": "galendae -c /home/ebalzol/.config/galendae/dark.conf",
       "tooltip": false
     }
   }
