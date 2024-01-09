@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# QT5 & QT6
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Tell XWayland to use a cursor theme
+
+# ??
+export _JAVA_AWT_WM_NONPARENTING=1
+
+# Set cursor theme
+export XCURSOR_THEME=macOS-Monterey
+
+# Set cursor size
+export XCURSOR_SIZE=16
+
+# nVidia stuff
+export LIBVA_DRIVER_NAME=nvidia
+export XDG_SESSION_TYPE=nvidia
+export GBM_BACKEND=nvidia-drm
+export WLR_RENDERER=vulkan
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export WLR_NO_HARDWARE_CURSORS=1
+export XWAYLAND_NO_GLAMOR=0
+
+export GDK_BACKEND=wayland
+export __GL_GSYNC_ALLOWED=0
+export __GL_VRR_ALLOWED=0
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# export XDG_SESSION_TYPE=wayland
+# export XWAYLAND_NO_GLAMOR=1
+
+# Firefox
+export MOZ_ENABLE_WAYLAND=1
+
+# dbus-run-session 
+sway --debug --verbose --unsupported-gpu
+# sway --debug --verbose --unsupported-gpu > /home/zoli/sway.txt 2>&1
+

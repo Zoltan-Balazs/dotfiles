@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-
-pactl set-sink-mute @DEFAULT_SINK@ toggle; playerctl pause; lock; pactl set-sink-mute @DEFAULT_SINK@ toggle

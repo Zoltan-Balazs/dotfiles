@@ -1,16 +1,12 @@
-set fish_color_autosuggestion dadada
-set fish_greeting
+if status is-interactive
+    thefuck --alias | source
+    zoxide init fish | source
+    starship init fish | source
+    atuin init fish | source
 
-# thefuck --alias | source
-# zoxide init fish | source
-starship init fish | source
-
-# alias ls="lsd -la"
-alias ls="exa -la --group-directories-first --icons"
-alias cat="bat"
-# alias r="radian"
-
-switch (tty)
-case "/dev/tty1"
-    wrapperhl
+    alias ls="eza --long --all --git --hyperlink --group-directories-first --icons"
+    alias cat="bat"
+    alias r="radian"
 end
+
+set fish_greeting

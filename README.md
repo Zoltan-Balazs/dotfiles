@@ -1,8 +1,3 @@
-# Screenshots
-![image](https://github.com/Zoltan-Balazs/dotfiles/assets/43118299/b3ed57a7-b941-417e-bda0-42340b6a739f)
-![image](https://github.com/Zoltan-Balazs/dotfiles/assets/43118299/fc1c1718-86b8-4111-9cf1-6c122b59b26e)
-![image](https://github.com/Zoltan-Balazs/dotfiles/assets/43118299/e335e14d-3550-41b3-882c-cb1dae01edd1)
-
 # [Oh-My-Fish](https://github.com/oh-my-fish/oh-my-fish)
 
 - bang-bang
@@ -15,11 +10,12 @@
 - **bat**
 - broot
 - **btop**
-- delta
+- **delta**
+- difft
 - difftastic
 - dust
 - eva
-- **exa**
+- **eza**
 - fd
 - **feh**
 - **fish**
@@ -28,7 +24,6 @@
 - **hyperfine**
 - jless
 - **just**
-- *lsd*
 - **neofetch**
 - nomino
 - **onefetch**
@@ -43,7 +38,7 @@
 - **starship**
 - **tealdeer**
 - **thefuck**
-- topgrade
+- topgrade-rs
 - **yt-dlp**
 - **zoxide**
 
@@ -61,17 +56,18 @@
 # Linux
 
 - **1password**
-- *ame*
+- **atuin**
+- **autotiling-rs**
 - **blueman**
 - **grim**
-- **hyprland**
-- **hyprpaper**
 - **joshuto**
 - nvtop
 - **paru**
 - **ranger**
 - **slurp**
 - **swappy**
+- **sway**
+- **swaybg**
 - **swayidle**
 - **swaync**
 - **swaylock-effects**

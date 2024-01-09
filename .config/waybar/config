@@ -6,31 +6,28 @@
     "margin-bottom": 0,
     "modules-left": [
       "custom/logout",
-      "hyprland/workspaces"
-    ],
-    "modules-center": [
+      "hyprland/workspaces",
+      "sway/workspaces",
       "custom/weather",
-      "clock"
+      "custom/stock"
     ],
+    "modules-center": [ ],
     "modules-right": [
+      "tray",
+      "custom/notifications",
+      "custom/clipboard",
+      "sway/language",
+      "idle_inhibitor",
       "network",
       "cpu",
       "memory",
       "pulseaudio",
-      "hyprland/language",
-      "custom/notifications",
-      "custom/clipboard",
-      "tray"
+      "clock"
     ],
     "custom/logout": {
-      "format": "⏻​",
-      "on-click": "wlogout"
-    },
-    "custom/weather": {
-      "exec": "python3 ~/.local/bin/weather",
-      "restart-interval": 300,
-      "return-type": "json",
-      "on-click": "xdg-open https://weather.com/en-GB/weather/today/l/Cs%C3%B6m%C3%B6r+Pest?canonicalCityId=e339243034101989eb24e3f811b8a0e958388deb3f59662c19639081e16f6d65"
+      "format": "⏻",
+      "on-click": "wlogout",
+      "tooltip": false
     },
     "wlr/workspaces": {
       "format": "{icon}",
@@ -49,38 +46,73 @@
       },
       "on-click": "activate"
     },
-    "network": {
-      "format-disconnected": "睊",
-      "format-wifi": "  {essid}",
-      "format-ethernet": "🖧 ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
-      "on-click": "kitty -e nmtui",
-      "interval": 5,
-      "tooltip-format": "{ifname} - {ipaddr}",
-      "tooltip": true
+    "custom/weather": {
+      "exec": "python3 ~/.local/bin/weather",
+      "restart-interval": 300,
+      "return-type": "json",
+      "on-click": "python3 ~/.local/bin/weather-open"
     },
-    "cpu": {
-      "format": "  {}%",
-      "interval": 10,
-      "max-length": 10,
+    "custom/stock": {
+      "exec": "python3 ~/.local/bin/stock",
+      "restart-interval": 60,
+      "return-type": "json",
+      "on-click": "xdg-open https://www.marketwatch.com/"
+    },
+    "custom/notifications": {
+      "format": "​",
+      "on-click": "swaync-client -t",
+      "on-click-middle": "swaync-client -C",
+      "exec": "swaync-client -c",
+      "exec-if": "[ $(swaync-client -c) -gt 0 ]",
+      "interval": 5,
       "tooltip": false
     },
-    "memory": {
-      "format": " {used:0.1f}GB",
-      "interval": 30,
-      "max-length": 10,
+    "sway/language": {
+      "format": "󰌌 {shortDescription}",
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
       "tooltip": false
     },
     "hyprland/language": {
-      "format": "{} \udb80\udf0c",
+      "format": "󰌌 {}",
       "format-en": "US",
       "format-hu": "HU",
       "keyboard-name": "zsa-technology-labs-moonlander-mark-i",
       "on-click": "hyprctl switchxkblayout zsa-technology-labs-moonlander-mark-i next"
     },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      },
+      "timeout": 30.5
+    },
+    "network": { 
+      "format-disconnected": "睊",
+      "format-wifi": " {essid}",
+      "format-ethernet": "↓{bandwidthDownBits} ↑{bandwidthUpBits}",
+      "interval": 3,
+      "tooltip-format": "{ifname} - {ipaddr}",
+      "tooltip": true
+    },
+    "cpu": { //  
+      "format": "󰍛 {load:2.2f}%",
+      "interval": 10,
+      "max-length": 10,
+      "tooltip": false,
+      "on-click": "alacritty -e btop"
+    },
+    "memory": { // 󰍛
+      "format": " {used:0.1f}GB",
+      "interval": 30,
+      "max-length": 10,
+      "tooltip": false,
+      "on-click": "alacritty -e btop"
+    },
     "custom/clipboard": {
-      "format": "📋",
-      "on-click": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -150 -y 10 -D line_wrap=char | cliphist decode | wl-copy",
-      "on-click-right": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -150 -y 10 -D line_wrap=char | cliphist delete",
+      "format": "󰅇​",
+      "on-click": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -180 -y 0 -D line_wrap=char | cliphist decode | wl-copy",
+      "on-click-right": "cliphist list | wofi -d -L 6 -l 3 -W 400 -x -180 -y 0 -D line_wrap=char | cliphist delete",
       "on-click-middle": "rm -f ~/.cache/cliphist/db",
       "exec": "cliphist list | wc -l",
       "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
@@ -88,39 +120,29 @@
       "tooltip": false
     },
     "tray": {
-      "spacing": 10
+      "spacing": 5,
+      "icon-size": 16
     },
     "pulseaudio": {
-      "format": "{icon}  {volume}%",
-      "format-bluetooth": "{icon}  {volume}%",
-      "format-muted": "",
+      "format": "{icon} {volume}% {format_source}",
+      "format-bluetooth": "{icon}  {volume}% {format_source}",
+      "format-source": " {volume}%",
+      "format-muted": "󰝟  {format_source}",
+      "format-bluetooth-muted": "󰝟   {format_source}",
+      "format-source-muted": " ",
       "format-icons": {
-        "headphones": "",
-        "handsfree": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
         "default": [
-          "",
-          ""
-        ]
+          "", "", ""
+        ],
+        "headphone": " "
       },
       "on-click": "pavucontrol",
       "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
       "on-click-middle": "playerctl play-pause"
     },
     "clock": {
-      "format": "🕑 {:%m/%d %H:%M}",
-      "on-click": "galendae"
-    },
-    "custom/notifications": {
-      "format": "🔔",
-      "on-click": "sleep 0.1; swaync-client -t",
-      "on-click-middle": "swaync-client -C",
-      "exec": "swaync-client -c",
-      "exec-if": "[ $(swaync-client -c) -gt 0 ]",
-      "interval": 5,
+      "format": " {:%m. %d. %a. %H:%M}",
+      "on-click": "galendae -c /home/zoli/.config/galendae/dark.conf",
       "tooltip": false
     }
   }

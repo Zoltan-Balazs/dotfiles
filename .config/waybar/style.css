@@ -1,126 +1,93 @@
 * {
-  font-family: SF Pro Display;
-  font-size: 15px;
-  font-weight: bold;
+    font-family: "FontAwesome";
+    font-size: 14px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px rgb(16, 16, 16);
+}
+
+button label {
+    all: unset;
 }
 
 window#waybar {
-  background-color: rgba(15, 15, 15, 0.15);
-  transition-property: background-color;
-  border-top: 2px transparent;
-  transition-duration: 0.5s;
-  color: rgb(240, 239, 244);
+    background: rgba(16, 16, 16, 0.75);
+    border-radius: 0px;
 }
 
-window#waybar.hidden {
-  opacity: 0.2;
+/* ----------- WORKSPACES ----------- */
+#workspaces button {
+    padding: 0 4px;
+    margin: 2px;
+    background: rgb(75, 81, 98);
 }
 
 #workspaces button.focused {
-  color: rgb(208, 52, 44);
-}
-
-#workspaces button.active {
-  color: rgb(22, 22, 29);
+    background: rgb(82, 148, 226);
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+    background: rgb(255, 15, 15);
 }
 
-#workspaces,
-#clock,
+/* Empty */
+#workspaces button.persistent {
+    color: #4e4e4e;
+}
+
+#custom-logout,
+#custom-weather,
+#custom-stock,
+#custom-notifications,
+#custom-clipboard,
+#language,
+#idle_inhibitor,
+#network,
 #cpu,
 #memory,
-#network,
 #pulseaudio,
-#language,
-#custom-weather,
-#custom-weather.severe,
-#custom-weather.sunnyDay,
-#custom-weather.clearNight,
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight,
-#custom-weather.rainyDay,
-#custom-weather.rainyNight,
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight,
-#custom-weather.default {
-  padding: 0 7px;
-  margin-left: 5px;
+#clock,
+#tray {
+    padding: 0 6px;
+    margin: 2px;
+    color: rgb(255, 255, 255);
+    background: rgb(75, 81, 98);
 }
 
-#tray,
+#custom-logout,
 #custom-clipboard,
-#custom-notifications {
-  padding: 0 5px;
+#idle_inhibitor {
+    padding: 0 12px 0 10px;
 }
 
-#custom-logout {
-  padding-left: 10px;
-  padding-right: 10px;
+#custom-stock.profit,
+#idle_inhibitor.activated {
+    background: rgb(5, 145, 66);
+    color: rgb(255, 255, 255);
 }
 
-#custom-logout {
-  background-color: #ae0040;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#workspaces {
-  background-color: #981c66;
-  padding: 0px;
-}
-
-#custom-weather {
-  background-color: #8b2c7b;
-}
-
-#clock {
-  background-color: #7c3f95;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-  margin-right: 0;
-}
-
-#network {
-  background-color: #724ba6;
-}
-
+#pulseaudio.muted,
+#custom-stock.loss,
+#idle_inhibitor.deactivated,
 #network.disconnected {
-  background-color: rgb(218, 44, 56);
+    background: rgb(255, 15, 15);
+    color: rgb(255, 255, 255);
 }
 
-#cpu {
-  background-color: #6758b8;
+/*
+#tray {
+    -gtk-icon-shadow: 2px 2px rgb(16, 16, 16);
+}
+*/
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
 
-#memory {
-  background-color: #5e63c7;
-}
-
-#pulseaudio {
-  background-color: #556ed6;
-}
-
-#language,
-#custom-clipboard,
-#tray,
-#custom-notifications {
-  background-color: #4385f5;
-}
-
-label:focus {
-  background-color: #000000;
-}
-
-#tray>.passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray>.needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: rgb(255, 15, 15);
 }
